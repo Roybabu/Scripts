@@ -9,7 +9,7 @@
 # Some User's Details. Please fill it with your own details.
 
 # Replace "legacy" with your own SSH Username in lowercase
-username=legacy
+username=roy
 
 # Assign values to parameters used in Script from Jenkins Job parameters
 use_ccache="$1"
@@ -33,13 +33,13 @@ if [ "$use_ccache" = "yes" ];
 then
 echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
 export USE_CCACHE=1
-export CCACHE_DIR=/home/ccache/$username
+export CCACHE_DIR=/home/ccache/roy
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
 fi
 
 if [ "$use_ccache" = "clean" ];
 then
-export CCACHE_DIR=/home/ccache/$username
+export CCACHE_DIR=/home/ccache/roy
 ccache -C
 export USE_CCACHE=1
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
